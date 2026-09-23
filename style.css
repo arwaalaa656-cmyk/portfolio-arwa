@@ -177,22 +177,30 @@ body.light-theme .navbar {
   font-weight: 500;
   color: var(--text-secondary);
   position: relative;
-  padding: 6px 0;
+  padding: 8px 0;
+  text-decoration: none;
+  transition: var(--transition);
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--text-main);
 }
 
-.nav-link.active::after {
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 2px;
+  width: 0%;
+  height: 2.5px;
   background: var(--gradient-main);
   border-radius: var(--radius-pill);
+  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
 }
 
 .nav-actions {
@@ -628,8 +636,10 @@ body.light-theme .navbar {
 }
 
 /* Section Common */
-.section {
+.section,
+section[id] {
   padding: 90px 0;
+  scroll-margin-top: 85px;
 }
 
 .section-badge {

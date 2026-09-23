@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
   initProjectFilters();
   initMobileNav();
+  initScrollSpy();
 });
 
 // Typing Animation
@@ -162,3 +163,46 @@ function closeGuideModal() {
 document.getElementById("guideModal").addEventListener("click", (e) => {
   if (e.target.id === "guideModal") closeGuideModal();
 });
+
+// Active Nav Link Scroll Spy & Dynamic Underline Movement
+function initScrollSpy() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function updateActive() {
+    const scrollPosition = window.scrollY + 140;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute("id");
+
+      if (scrollPosition >= top && scrollPosition < top + height) {
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${id}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+
+    // If reached bottom of page, highlight Contact
+    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 60) {
+      navLinks.forEach(l => l.classList.remove("active"));
+      const contactLink = document.querySelector('.nav-link[href="#contact"]');
+      if (contactLink) contactLink.classList.add("active");
+    }
+  }
+
+  // Click handler on nav links for instant active transition
+  navLinks.forEach(link => {
+    link.addEventListener("click", function() {
+      navLinks.forEach(l => l.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+
+  window.addEventListener("scroll", updateActive, { passive: true });
+  updateActive();
+}
