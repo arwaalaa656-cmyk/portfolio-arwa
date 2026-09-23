@@ -758,8 +758,8 @@ section[id] {
 /* Skills Categories */
 .skills-categories {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
 .skill-category-card {
