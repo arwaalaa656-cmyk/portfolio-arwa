@@ -969,6 +969,10 @@ body.light-theme .navbar {
   margin-top: auto;
   border-top: 1px solid var(--border-color);
   padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .link-btn {
@@ -978,11 +982,34 @@ body.light-theme .navbar {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
+  transition: var(--transition);
 }
 
 .link-btn:hover {
   color: #fff;
   transform: translateX(4px);
+}
+
+.link-code-btn {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.link-code-btn:hover {
+  color: #fff;
+  border-color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.2);
 }
 
 /* Placeholder Card */
