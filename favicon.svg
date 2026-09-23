@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="codeGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="portBg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#portBg)" stroke="url(#codeGrad)" stroke-width="2.5"/>
+  <!-- Code brackets < > and Letter A -->
+  <path d="M19 24L11 32L19 40" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 24L53 32L45 40" stroke="#a855f7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Letter A inside -->
+  <path d="M32 19L24 43H29L30.8 37H33.2L35 43H40L32 19ZM32 26L32.7 32H31.3L32 26Z" fill="url(#codeGrad)" filter="url(#softGlow)"/>
+</svg>
